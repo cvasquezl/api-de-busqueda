@@ -13,7 +13,7 @@ app.use(cors())
 app.use(express.json())
 
 
-app.get('/busqueda', async (req, res) => {
+app.get('/', async (req, res) => {
     let busquedas = await Busqueda.find()
     res.json( busquedas )
 })
