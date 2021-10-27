@@ -2,7 +2,7 @@ const express = require('express') //npm install express
 //const fileUpload = require('express-fileupload')
 const { ObjectId } = require("mongoose")
 const app = express()  
-const port = 4000
+const port = process.env.PORT || 4000;
 const cors = require('cors') //npm i cors
 
 require('./database') // npm i mongoose 
