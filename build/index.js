@@ -1,25 +1,32 @@
+"use strict";
+
 const express = require('express'); //npm install express
 //const fileUpload = require('express-fileupload')
-const { ObjectId } = require("mongoose");
-const app = express();  
+
+
+const {
+  ObjectId
+} = require("mongoose");
+
+const app = express();
 const port = process.env.PORT || 4000;
+
 const cors = require('cors'); //npm i cors
 
+
 require('./database'); // npm i mongoose 
+
+
 const Busqueda = require('./model/busqueda');
 
-const router = express.Router();
+const router = express.Router(); //app.use(fileUpload())
 
-//app.use(fileUpload())
-app.use(cors()); 
+app.use(cors());
 app.use(express.json());
-
-
 router.get('/', async (req, res) => {
-    let busquedas = await Busqueda.find();
-    res.json( busquedas );
+  let busquedas = await Busqueda.find();
+  res.json(busquedas);
 });
-
 /* app.post('/busqueda', async (req, res) => {
     const {nombre, edicion } = req.body;
     const book = new Book({ nombre, edicion });
@@ -50,6 +57,7 @@ app.put('/book', async (req, res) => {
   await Book.updateOne({_id:id}, {$set:{nombre, edicion}});
   res.json({ msg: "libro actualizado"});
 }); */
+
 app.use(router);
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);

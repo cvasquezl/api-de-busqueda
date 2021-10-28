@@ -4,16 +4,24 @@
   "description": "rest express",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "nodemon --exec babel-node src/index.js",
+    "build": "babel src/ --out-dir build",
+    "serve": "node build/index.js",
     "dev": "node src/index.js"
   },
   "author": "loricode",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
     "express-fileupload": "^1.2.0",
-    "mongoose": "^5.13.12",
     "nodemon": "^2.0.14"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/node": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.12"
   }
 }
