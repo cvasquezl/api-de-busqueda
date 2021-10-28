@@ -17,7 +17,7 @@ app.use(express.json());
 
 router.get('/', async (req, res) => {
     let busquedas = await Busqueda.find();
-    res.json( busquedas );
+    res.json( {resutaldo:busquedas} );
 });
 
 /* app.post('/busqueda', async (req, res) => {
