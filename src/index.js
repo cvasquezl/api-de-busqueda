@@ -18,12 +18,12 @@ app.get('/busqueda', async (req, res) => {
     res.json( busquedas );
 });
 
-app.post('/busqueda', async (req, res) => {
+/* app.post('/busqueda', async (req, res) => {
     const {nombre, edicion } = req.body;
     const book = new Book({ nombre, edicion });
     await book.save(); 
     res.json({ msg: "libro agregado" });
-});
+}); */
 
 /* app.delete('/book/:id', async (req, res) => {
    const { id } = req.params;
