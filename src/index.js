@@ -50,7 +50,7 @@ app.put('/book', async (req, res) => {
   await Book.updateOne({_id:id}, {$set:{nombre, edicion}});
   res.json({ msg: "libro actualizado"});
 }); */
-
+app.use(router);
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
 });
