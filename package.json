@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "express": "^4.17.1",
     "express-fileupload": "^1.2.0",
     "nodemon": "^2.0.14"
   },
@@ -21,7 +22,6 @@
     "@babel/core": "^7.15.8",
     "@babel/node": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
-    "express": "^4.17.1",
     "mongoose": "^5.13.12"
   }
 }
