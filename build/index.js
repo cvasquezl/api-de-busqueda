@@ -58,7 +58,7 @@ app.put('/book', async (req, res) => {
   res.json({ msg: "libro actualizado"});
 }); */
 
-app.use(router);
+app.use('/busqueda',router);
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
 });
