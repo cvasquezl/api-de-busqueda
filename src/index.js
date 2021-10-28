@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 
-router.get('/busqueda', async (req, res) => {
+router.get('/', async (req, res) => {
     let busquedas = await Busqueda.find();
     res.json( busquedas );
 });
