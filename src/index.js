@@ -8,12 +8,14 @@ const cors = require('cors'); //npm i cors
 require('./database'); // npm i mongoose 
 const Busqueda = require('./model/busqueda');
 
+const router = express.Router();
+
 //app.use(fileUpload())
 app.use(cors()); 
 app.use(express.json());
 
 
-app.get('/busqueda', async (req, res) => {
+router.get('/busqueda', async (req, res) => {
     let busquedas = await Busqueda.find();
     res.json( busquedas );
 });
