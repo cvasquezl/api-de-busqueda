@@ -20,36 +20,40 @@ router.get('/', async (req, res) => {
     res.json(busquedas);
 });
 
-/* app.post('/busqueda', async (req, res) => {
-    const {nombre, edicion } = req.body;
-    const book = new Book({ nombre, edicion });
-    await book.save(); 
-    res.json({ msg: "libro agregado" });
-}); */
+app.post('/', async (req, res) => {
+    for (const longitud of req.body){
+      const {REGION,CIUDAD,IATA,COMUNA } = longitud;
+      const busqueda = new Busqueda({REGION,CIUDAD,IATA,COMUNA});
+      console.log(busqueda);
+      await busqueda.save(); 
+      res.json({ msg: "agregados los datos " });
+    }
+    
+}); 
 
 /* app.delete('/book/:id', async (req, res) => {
    const { id } = req.params;
    await Book.deleteOne({ _id: id });
    res.json({ msg:'libro eliminado' });
 });
-
-app.get('/book/:texto', async (req, res) => {
+*/
+router.get('/busqueda/:texto', async (req, res) => {
     const { texto } = req.params; 
-    let books = await Book.find({nombre: new RegExp('^'+texto+'$', "i")});
-    res.json( books );
+    let busqueda = await Busqueda.find({CIUDAD: new RegExp('^'+texto+'$', "i")});
+    res.json( busqueda );
 });
-
+/*
 app.get('/book/obtener/:id', async (req, res) => {
     const { id } = req.params; 
     let books = await Book.findOne({ _id: id });
     res.json( books );
 });
-
-app.put('/book', async (req, res) => {
+*/
+router.put('/busqueda', async (req, res) => {
   const {id, nombre, edicion } = req.body;
-  await Book.updateOne({_id:id}, {$set:{nombre, edicion}});
-  res.json({ msg: "libro actualizado"});
-}); */
+  await Busqueda.updateOne({_id:id}, {$set:{nombre, edicion}});
+  res.json({ msg: "busqueda actualizada"});
+});
 app.use(router);
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`);
